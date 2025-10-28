@@ -9,21 +9,22 @@
 </head>
 
 <body class="bg-[#f3f4f8]">
-    <header class="flex justify-between items-center m-20 border-4 border-indigo-100 h-19 p-9 shadow-md rounded-xl bg-[white] ">
+    <header
+        class="flex justify-between items-center m-20 border-4 border-indigo-100 h-19 p-9 shadow-md rounded-xl bg-[white] ">
         <div class="flex ">
             <img class="size-48" src="./images/logoo.avif" alt="logo">
             <p class="text-[66px] justify-center content-center  font-bold text-blue-400">lsnd</p>
         </div>
         <p class="text-[45px]">Tableau de Bord</p>
         <div class="header-actions">
-            <button class="btn-add bg-sky-500/100 p-9 rounded-xl text-[26px] text-white font-bold" >
+            <button class=" bg-sky-500/100 p-9 rounded-xl text-[26px] text-white font-bold">
                 + Ajouter une transaction
             </button>
 
         </div>
         <div class="dark-light">icon</div>
     </header>
-    <div class="flex justify-evenly ">
+    <div class="flex flex-col md:justify-evenly md:flex-row">
         <div class="text-center m-20 border-4 border-indigo-100  shadow-md rounded-xl bg-[white]  flex-1 ">
             <div class="text-[200%] ">Solde Net</div>
             <div class="text-[290%] text-blue-500 font-bold">2 110,0 €</div>
@@ -32,12 +33,60 @@
             <div class="text-[200%] ">Revenu Total</div>
             <div class="text-[290%] text-green-500 font-bold">+3 670,0 €</div>
         </div>
-        <div class="text-center m-20 border-4 border-indigo-100  shadow-md rounded-xl bg-[white]  flex-1 ">
+        <div class="text-center m-20 border-4 border-indigo-100  shadow-md rounded-xl bg-[white]   flex-1">
             <div class="text-[200%] ">Dépenses Totales</div>
             <div class="text-[290%] text-red-500 font-bold">-1 560,0 €</div>
         </div>
-        
+
     </div>
+
+
+
+    <div class="">
+        <div
+            class="flex flex-col gap-10 justify-between items-center m-20 border-4 border-indigo-100 h-19 w-[30%] shadow-md rounded-xl bg-[white] p-20">
+            <div class="flex justify-between">
+                <h2 class="text-[200%] ">Nouvelle Transaction</h2>
+                <button>x</button>
+            </div>
+            <form class="flex flex-col items-center">
+                <div class="flex flex-col items-start justify-evenly ">
+                    <label> Déscription</label>
+                    <input
+                        class="text-center m-10 border-4 border-indigo-100  shadow-md rounded-xl bg-[white] h-16 md:w-[590px] w-[100px] ml-0"
+                        type="text" class="" placeholder="Ex: Salaire, Courses..." required>
+                </div>
+                <div class="flex flex-col items-start justify-evenly">
+                    <label> Montant</label>
+                    <input
+                        class="text-center m-10 border-4 border-indigo-100  shadow-md rounded-xl bg-[white] h-16 md:w-[590px] w-[100px] ml-0"
+                        type="number" class="" placeholder="000.000.000 MAD" required>
+                </div>
+                <div class=" flex flex-col items-start justify-evenly">
+                    <label> Type </label>
+                    <input
+                        class="text-center m-10 border-4 border-indigo-100  shadow-md rounded-xl bg-[white] h-16 md:w-[590px] w-[100px] ml-0"
+                        type="text" class="" placeholder="selectionnez" required>
+                </div>
+                <div class="flex flex-col items-start justify-start">
+                    <label> Date</label>
+                    <input
+                        class="text-center m-10 border-4 border-indigo-100  shadow-md rounded-xl bg-[white] h-16 md:w-[590px] w-[100px] ml-0"
+                        type="date" class="" placeholder="" required>
+                </div>
+                <div class="flex gap-10">
+                    <button class="">Anuller</button>
+                    <button class="">Enregistrer</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+
+
+
+
 </body>
 
 </html>
