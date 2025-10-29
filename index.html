@@ -41,32 +41,32 @@
 
     </div>
     <h2 class="font-bold text-[250%] ml-20"> Mes Transactions</h2>
-    <div class="flex flex-col flex-wrap md:justify-evenly md:flex-row">
-        <div class="text-center m-20 border-4 border-indigo-100  shadow-md rounded-xl bg-[white]   ">
+    <div class="flex flex-col flex-wrap md:justify-evenly md:flex-row ">
+        <div class="text-center m-20 border-4 border-indigo-100  shadow-md rounded-xl bg-[white] w-fit p-40 ">
             <div class="text-[200%] ">description</div>
             <div class="text-[200%] ">date</div>
             <div class="text-[200%] ">type</div>
             <div class="">2 110,0 €</div>
         </div>
-        <div class="text-center m-20 border-4 border-indigo-100  shadow-md rounded-xl bg-[white]   ">
+        <div class="text-center m-20 border-4 border-indigo-100  shadow-md rounded-xl bg-[white] w-fit p-40 ">
             <div class="text-[200%] ">description</div>
             <div class="text-[200%] ">date</div>
             <div class="text-[200%] ">type</div>
             <div class="">2 110,0 €</div>
         </div>
-        <div class="text-center m-20 border-4 border-indigo-100  shadow-md rounded-xl bg-[white]   ">
+        <div class="text-center m-20 border-4 border-indigo-100  shadow-md rounded-xl bg-[white] w-fit p-40  ">
             <div class="text-[200%] ">description</div>
             <div class="text-[200%] ">date</div>
             <div class="text-[200%] ">type</div>
             <div class="">2 110,0 €</div>
         </div>
-        <div class="text-center m-20 border-4 border-indigo-100  shadow-md rounded-xl bg-[white]  ">
+        <div class="text-center m-20 border-4 border-indigo-100  shadow-md rounded-xl bg-[white] w-fit p-40 ">
             <div class="text-[200%] ">description</div>
             <div class="text-[200%] ">date</div>
             <div class="text-[200%] ">type</div>
             <div class="">2 110,0 €</div>
         </div>
-        <div class="text-center m-20 border-4 border-indigo-100  shadow-md rounded-xl bg-[white]  ">
+        <div class="text-center m-20 border-4 border-indigo-100  shadow-md rounded-xl bg-[white] w-fit p-40 ">
             <div class="text-[200%] ">description</div>
             <div class="text-[200%] ">date</div>
             <div class="text-[200%] ">type</div>
@@ -84,35 +84,38 @@
                 <h2 class="text-[200%] flex justify-between bg-sky-500/100 p-9 rounded-xl text-[17px] text-white font-bold">Nouvelle Transaction</h2>
                 
             
-            <form class="flex flex-col items-center  ">
-                
+            <form id="" class="flex flex-col items-center  ">
+                <div class="flex flex-col items-start justify-start">
+                    <label> Type</label>
+                    <select  class="text-center m-10 border-4 border-indigo-100  shadow-md rounded-xl bg-[white] h-16 md:w-[590px] w-[100px] ml-0" id="type" required>
+                        <option value="">Sélectionnez</option>
+                        <option value="revenu">Revenu</option>
+                        <option value="depense">Dépense</option>
+                    </select>
+                </div>
                 <div class="flex flex-col items-start justify-evenly">
                     <label> Montant</label>
                     <input
                         class="text-center m-10 border-4 border-indigo-100  shadow-md rounded-xl bg-[white] h-16 md:w-[590px] w-[100px] ml-0"
-                        type="number" class="" placeholder="000.000.000 MAD" required>
+                        type="number" id="montant" placeholder="000.000.000 MAD" required>
                 </div>
                 <div class=" flex flex-col items-start justify-evenly">
-                    <label> Type </label>
+                    <label> Date </label>
                     <input
                         class="text-center m-10 border-4 border-indigo-100  shadow-md rounded-xl bg-[white] h-16 md:w-[590px] w-[100px] ml-0"
-                        type="text" class="" placeholder="selectionnez" required>
+                        type="date" id="date" placeholder="selectionnez" required>
+                        
                 </div>
                 <div class="flex flex-col items-start justify-evenly ">
                     <label> Déscription</label>
                     <input
                         class="text-center m-10 border-4 border-indigo-100  shadow-md rounded-xl bg-[white] h-16 md:w-[590px] w-[100px] ml-0"
-                        type="text" class="" placeholder="Ex: Salaire, Courses..." required>
+                        type="text" id="description" placeholder="Ex: Salaire, Courses..." required>
                 </div>
-                <div class="flex flex-col items-start justify-start">
-                    <label> Date</label>
-                    <input
-                        class="text-center m-10 border-4 border-indigo-100  shadow-md rounded-xl bg-[white] h-16 md:w-[590px] w-[100px] ml-0"
-                        type="date" class="" placeholder="" required>
-                </div>
+                
                 <div class="flex gap-10">
                     <button id="anuller" onclick="closePopup()" class=" bg-red-400 p-9 rounded-xl text-[26px] text-white font-bold">Anuller</button>
-                    <button class=" bg-sky-500/100 pl-12 pr-12  rounded-xl text-[26px] text-white font-bold">Enregistrer</button>
+                    <button class=" bg-sky-500/100 pl-12 pr-12  rounded-xl text-[26px] text-white font-bold" type="submit">Enregistrer</button>
                 </div>
             </form>
 
