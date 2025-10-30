@@ -74,3 +74,23 @@ function enregistrerTransaction(e) {
     document.querySelector('form').reset();
     closePopup();
 }
+
+function calculerEtAfficherTotaux() {
+    let revenuTotal = 0;
+    let depenseTotal = 0;
+    
+    for (let i = 0; i < mesTransactions.length; i++) {
+        const transaction = mesTransactions[i];
+        const montant = parseFloat(transaction.montant);
+        
+        if (transaction.type === 'revenu') {
+            revenuTotal = revenuTotal + montant;
+        } else if (transaction.type === 'depense') {
+            depenseTotal = depenseTotal + montant;
+        }
+    }
+    
+    let soldeNet = revenuTotal - depenseTotal;
+    
+    afficherLesTotaux(soldeNet, revenuTotal, depenseTotal);
+}
