@@ -75,4 +75,33 @@ function verifierFormulaire() {
     return true;
 }
 
+function enregistrerTransaction(event) {
+    
+    event.preventDefault();
+    
+    let formulaireValide = verifierFormulaire();
+    
+    if (formulaireValide === false) {
+        return;
+    }
+    
+    let type = document.getElementById('type').value;
+    let montant = document.getElementById('montant').value;
+    let date = document.getElementById('date').value;
+    let description = document.getElementById('description').value;
+   
+    alert('✅ Transaction enregistrée avec succès !');
+    
+    console.log('Type:', type);
+    console.log('Montant:', montant, 'MAD');
+    console.log('Date:', date);
+    console.log('Description:', description);
+    
+    document.getElementById('type').value = '';
+    document.getElementById('montant').value = '';
+    document.getElementById('date').value = '';
+    document.getElementById('description').value = '';
+    
+    closePopup();
+}
 
