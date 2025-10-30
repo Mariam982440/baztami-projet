@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="index.js"></script>
+
     <title>Document</title>
 </head>
 
@@ -40,54 +40,29 @@
         </div>
 
     </div>
-    <h2 class="font-bold text-[250%] ml-20"> Mes Transactions</h2>
-    <div id="carte-affichage" class="flex flex-col flex-wrap md:justify-evenly md:flex-row ">
-        <div class="text-center m-20 border-4 border-indigo-100  shadow-md rounded-xl bg-[white] w-fit p-40 ">
-            <div class="text-[200%] ">description</div>
-            <div class="text-[200%] ">date</div>
-            <div class="text-[200%] ">type</div>
-            <div class="">2 110,0 €</div>
-        </div>
-        <div class="text-center m-20 border-4 border-indigo-100  shadow-md rounded-xl bg-[white] w-fit p-40 ">
-            <div class="text-[200%] ">description</div>
-            <div class="text-[200%] ">date</div>
-            <div class="text-[200%] ">type</div>
-            <div class="">2 110,0 €</div>
-        </div>
-        <div class="text-center m-20 border-4 border-indigo-100  shadow-md rounded-xl bg-[white] w-fit p-40  ">
-            <div class="text-[200%] ">description</div>
-            <div class="text-[200%] ">date</div>
-            <div class="text-[200%] ">type</div>
-            <div class="">2 110,0 €</div>
-        </div>
-        <div class="text-center m-20 border-4 border-indigo-100  shadow-md rounded-xl bg-[white] w-fit p-40 ">
-            <div class="text-[200%] ">description</div>
-            <div class="text-[200%] ">date</div>
-            <div class="text-[200%] ">type</div>
-            <div class="">2 110,0 €</div>
-        </div>
-        <div class="text-center m-20 border-4 border-indigo-100  shadow-md rounded-xl bg-[white] w-fit p-40 ">
-            <div class="text-[200%] ">description</div>
-            <div class="text-[200%] ">date</div>
-            <div class="text-[200%] ">type</div>
-            <div class="">2 110,0 €</div>
-        </div>
-        
+
+
+    <h2 class="font-bold text-[250%] ml-20">Mes Transactions</h2>
+    <div id="carte-affichage" class="flex gap-5 justify-start px-20 py-10">
+        <!-- Les cartes seront insérées ici par JavaScript -->
     </div>
 
 
-    
+
     <div id="popup" class="flex hidden fixed inset-0 justify-center bg-black bg-opacity-70">
         <div
             class="flex flex-col gap-0 justify-between items-center m-20 border-4 border-indigo-100 h-17  shadow-md rounded-xl bg-[white] p-20 w-90">
-            
-                <h2 class="text-[200%] flex justify-between bg-sky-500/100 p-9 rounded-xl text-[17px] text-white font-bold">Nouvelle Transaction</h2>
-                
-            
+
+            <h2 class="text-[200%] flex justify-between bg-sky-500/100 p-9 rounded-xl text-[17px] text-white font-bold">
+                Nouvelle Transaction</h2>
+
+
             <form id="" class="flex flex-col items-center  ">
                 <div class="flex flex-col items-start justify-start">
                     <label> Type</label>
-                    <select  class="text-center m-10 border-4 border-indigo-100  shadow-md rounded-xl bg-[white] h-16 md:w-[590px] w-[100px] ml-0" id="type" required>
+                    <select
+                        class="text-center m-10 border-4 border-indigo-100  shadow-md rounded-xl bg-[white] h-16 md:w-[590px] w-[100px] ml-0"
+                        id="type" required>
                         <option value="">Sélectionnez</option>
                         <option value="revenu">Revenu</option>
                         <option value="depense">Dépense</option>
@@ -104,7 +79,7 @@
                     <input
                         class="text-center m-10 border-4 border-indigo-100  shadow-md rounded-xl bg-[white] h-16 md:w-[590px] w-[100px] ml-0"
                         type="date" id="date" placeholder="selectionnez" required>
-                        
+
                 </div>
                 <div class="flex flex-col items-start justify-evenly ">
                     <label> Déscription</label>
@@ -112,10 +87,12 @@
                         class="text-center m-10 border-4 border-indigo-100  shadow-md rounded-xl bg-[white] h-16 md:w-[590px] w-[100px] ml-0"
                         type="text" id="description" placeholder="Ex: Salaire, Courses..." required>
                 </div>
-                
+
                 <div class="flex gap-10">
-                    <button id="anuller" onclick="closePopup()" class=" bg-red-400 p-9 rounded-xl text-[26px] text-white font-bold">Anuller</button>
-                    <button class=" bg-sky-500/100 pl-12 pr-12  rounded-xl text-[26px] text-white font-bold" type="submit">Enregistrer</button>
+                    <button id="anuller" onclick="closePopup()"
+                        class=" bg-red-400 p-9 rounded-xl text-[26px] text-white font-bold">Anuller</button>
+                    <button class=" bg-sky-500/100 pl-12 pr-12  rounded-xl text-[26px] text-white font-bold"
+                        type="submit">Enregistrer</button>
                 </div>
             </form>
 
@@ -125,7 +102,7 @@
 
 
 
-
+    <script src="index.js"></script>
 </body>
 
 </html>
