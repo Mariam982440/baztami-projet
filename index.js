@@ -89,13 +89,22 @@ function enregistrerTransaction(event) {
     let montant = document.getElementById('montant').value;
     let date = document.getElementById('date').value;
     let description = document.getElementById('description').value;
-   
-    alert('✅ Transaction enregistrée avec succès !');
+
+ 
+    let nouvelleTransaction = {
+        type: type,
+        montant: montant,
+        date: date,
+        description: description
+    };
     
-    console.log('Type:', type);
-    console.log('Montant:', montant, 'MAD');
-    console.log('Date:', date);
-    console.log('Description:', description);
+    mesTransactions.push(nouvelleTransaction);
+   
+    alert('Transaction enregistrée avec succès !');
+    
+    console.log('Transaction ajoutée:', nouvelleTransaction);
+    console.log('Total de transactions:', mesTransactions.length);
+    
     
     document.getElementById('type').value = '';
     document.getElementById('montant').value = '';
@@ -104,4 +113,14 @@ function enregistrerTransaction(event) {
     
     closePopup();
 }
+window.onload = function() {
+    
+    let formulaire = document.querySelector('form');
+    
+    formulaire.onsubmit = enregistrerTransaction;
+    
+    
+    
+    
+};
 
