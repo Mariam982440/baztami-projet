@@ -49,7 +49,7 @@ function afficherTransactions() {
         </div>
         <div class="flex gap-10 justify-end items-center ">
             <div class="text-[140%] font-bold">${signe}${t.montant} MAD</div>
-            <button><i class=" text-[160%] fa-regular fa-trash"></i></button>
+            <button onclick="supprimerTransaction(${i})"><i class=" text-[160%] fa-regular fa-trash"></i></button>
             <button><i class=" text-[160%] fa-regular fa-pen-to-square"></i></button>
         </div>
 
