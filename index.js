@@ -27,7 +27,7 @@ function afficherTransactions() {
         return;
     }
 
-    // 
+    /
     let html = '';
 
     // boucle sur les transactions
@@ -49,15 +49,10 @@ function afficherTransactions() {
         </div>
         <div class="flex gap-10 justify-end items-center ">
             <div class="text-[140%] font-bold">${signe}${t.montant} MAD</div>
-            <button onclick="supprimerTransaction(${i})"><i class=" text-[160%] fa-regular fa-trash"></i></button>
-            <button><i class=" text-[160%] fa-regular fa-pen-to-square"></i></button>
+            <button onclick="supprimerTransaction(${i})"><i class=" text-[160%] fa-solid fa-trash"></i></button>
+            <button onclick="modifierTransaction(${i})"><i class=" text-[160%] fa-regular fa-pen-to-square"></i></button>
         </div>
-
-
     </div>`;
-
-
-        
 
     }
 
@@ -67,27 +62,7 @@ function afficherTransactions() {
 
 
 // pour enregistrer une nouvelle transaction
-function enregistrerTransaction(e) {
-    e.preventDefault();
 
-    const type = document.getElementById('type').value;
-    const montant = parseFloat(document.getElementById('montant').value);
-    const date = document.getElementById('date').value;
-    const description = document.getElementById('description').value;
-
-    if (!type || !montant || !date || !description) {
-        alert('Veuillez remplir tous les champs');
-        return;
-    }
-
-    mesTransactions.push({ type, montant, date, description, status: "active" });
-    localStorage.setItem('transaction', JSON.stringify(mesTransactions));
-
-    afficherTransactions();
-    calculerEtAfficherTotaux();
-    document.querySelector('form').reset();
-    closePopup();
-}
 
 function calculerEtAfficherTotaux() {
     let revenuTotal = 0;
@@ -111,13 +86,11 @@ function calculerEtAfficherTotaux() {
 
 
 function afficherLesTotaux(soldeNet, revenuTotal, depenseTotal) {
-    // Formater les montants avec des espaces
     let soldeFormate = soldeNet.toLocaleString('fr-FR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
     let revenuFormate = revenuTotal.toLocaleString('fr-FR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
     let depenseFormate = depenseTotal.toLocaleString('fr-FR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
     
-    // Choisir la couleur du solde selon s'il est positif ou négatif
-    let couleurSolde = soldeNet >= 0 ? 'text-blue-500' : 'text-red-500';
+    
     
     // Modifier le HTML
     document.getElementById('solde').innerHTML = `
@@ -143,3 +116,57 @@ function supprimerTransaction(index){
     afficherTransactions(); 
     calculerEtAfficherTotaux();
 }
+let indexModifier = null;
+
+function modifierTransaction(index){
+    indexModifier= index;
+    document.getElementById('description').value=mesTransactions[index].description;
+    document.getElementById('montant').value=mesTransactions[index].montant;
+    document.getElementById('type').value=mesTransactions[index].type;
+    document.getElementById('date').value=mesTransactions[index].date;
+    
+
+openPopup()
+}
+
+function enregistrerTransaction(e) {
+    e.preventDefault();
+
+    const type = document.getElementById('type').value;
+    const montant = parseFloat(document.getElementById('montant').value);
+    const date = document.getElementById('date').value;
+    const description = document.getElementById('description').value;
+
+    if (!type || !montant || !date || !description) {
+        alert('Veuillez remplir tous les champs');
+        return;
+    }
+
+    if (indexModifier !== null) {
+        
+        mesTransactions[indexModifier].type = type;
+        mesTransactions[indexModifier].montant = montant;
+        mesTransactions[indexModifier].date = date;
+        mesTransactions[indexModifier].description = description;
+
+        indexModifier = null; 
+    } else {
+        mesTransactions.push({
+            type,
+            montant,
+            date,
+            description,
+            status: "active"
+        });
+    }
+
+    
+    localStorage.setItem('transaction', JSON.stringify(mesTransactions));
+
+    afficherTransactions();
+    calculerEtAfficherTotaux();
+    
+    document.querySelector('form').reset();
+    closePopup();
+}
+
