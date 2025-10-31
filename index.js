@@ -79,7 +79,7 @@ function enregistrerTransaction(e) {
         return;
     }
 
-    mesTransactions.push({ type, montant, date, description });
+    mesTransactions.push({ type, montant, date, description, status: "active" });
     localStorage.setItem('transaction', JSON.stringify(mesTransactions));
 
     afficherTransactions();
@@ -133,4 +133,12 @@ function afficherLesTotaux(soldeNet, revenuTotal, depenseTotal) {
         <div class="text-[200%]">Dépenses Totales</div>
         <div class="text-[290%] text-red-500 font-bold">-${depenseFormate} MAD</div>
     `;
+}
+
+function supprimerTransaction(index){
+    mesTransactions[index].status='deleted';
+    
+    localStorage.setItem('transaction', JSON.stringify(mesTransactions)); 
+    afficherTransactions(); 
+    calculerEtAfficherTotaux();
 }
