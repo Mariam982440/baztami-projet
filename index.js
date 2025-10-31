@@ -27,7 +27,7 @@ function afficherTransactions() {
         return;
     }
 
-    /
+    
     let html = '';
 
     // boucle sur les transactions
