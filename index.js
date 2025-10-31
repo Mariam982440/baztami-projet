@@ -5,6 +5,7 @@ window.onload = function() {
     const saved = localStorage.getItem('transaction');
     if (saved) mesTransactions = JSON.parse(saved);
     afficherTransactions();
+    calculerEtAfficherTotaux();
 
     document.querySelector('form').onsubmit = enregistrerTransaction;
 };
@@ -34,18 +35,29 @@ function afficherTransactions() {
         const t = mesTransactions[i];
         const couleur = t.type === 'revenu' ? 'bg-green-500' : 'bg-red-500';
         const signe = t.type === 'revenu' ? '+' : '-';
+        const cadre = t.type === 'revenu'? 'border-green-300':'border-red-300';
 
         html += `
-        <div class="text-center m-20 border-4 border-indigo-100 shadow-md rounded-xl ${couleur} w-[80%] pr-40 pl-40 pt-15 pb-15">
-            <div class="text-[150%] font-bold mb-3">${t.description}</div>
-            <div class="text-[120%] text-gray-600 mb-2">${t.date}</div>
-            <div class="text-[120%] mb-3">
-                <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full">
-                    ${t.type === 'revenu' ? '💰 Revenu' : '💸 Dépense'}
-                </span>
-            </div>
-            <div class="text-[200%] font-bold">${signe}${t.montant} MAD</div>
-        </div>`;
+        <div
+        class="flex justify-between text-center bg-opacity-20 mx-20  border-4 ${cadre} shadow-md rounded-xl ${couleur} w-[50%]  py-6 px-12">
+        <div class="flex flex-col  justify-start">
+
+            <div class="text-[160%] font-bold mb-3">${t.description}</div>
+            <div class="text-[90%] text-gray-600 mb-2">${t.date}</div>
+
+        </div>
+        <div class="flex gap-10 justify-end items-center ">
+            <div class="text-[140%] font-bold">${signe}${t.montant} MAD</div>
+            <button><i class=" text-[160%] fa-regular fa-trash"></i></button>
+            <button><i class=" text-[160%] fa-regular fa-pen-to-square"></i></button>
+        </div>
+
+
+    </div>`;
+
+
+        
+
     }
 
     // modifie html
@@ -71,6 +83,7 @@ function enregistrerTransaction(e) {
     localStorage.setItem('transaction', JSON.stringify(mesTransactions));
 
     afficherTransactions();
+    calculerEtAfficherTotaux();
     document.querySelector('form').reset();
     closePopup();
 }
@@ -93,4 +106,31 @@ function calculerEtAfficherTotaux() {
     let soldeNet = revenuTotal - depenseTotal;
     
     afficherLesTotaux(soldeNet, revenuTotal, depenseTotal);
+}
+
+
+function afficherLesTotaux(soldeNet, revenuTotal, depenseTotal) {
+    // Formater les montants avec des espaces
+    let soldeFormate = soldeNet.toLocaleString('fr-FR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    let revenuFormate = revenuTotal.toLocaleString('fr-FR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    let depenseFormate = depenseTotal.toLocaleString('fr-FR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    
+    // Choisir la couleur du solde selon s'il est positif ou négatif
+    let couleurSolde = soldeNet >= 0 ? 'text-blue-500' : 'text-red-500';
+    
+    // Modifier le HTML
+    document.getElementById('solde').innerHTML = `
+        <div class="text-[200%]">Solde Net</div>
+        <div class="text-[290%] font-bold">${soldeFormate} MAD</div>
+    `;
+    
+    document.getElementById('revenu').innerHTML = `
+        <div class="text-[200%]">Revenu Total</div>
+        <div class="text-[290%] text-green-500 font-bold">+${revenuFormate} MAD</div>
+    `;
+    
+    document.getElementById('depense').innerHTML = `
+        <div class="text-[200%]">Dépenses Totales</div>
+        <div class="text-[290%] text-red-500 font-bold">-${depenseFormate} MAD</div>
+    `;
 }

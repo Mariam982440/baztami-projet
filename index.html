@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
 
     <title>Document</title>
@@ -11,49 +12,68 @@
 
 <body class="bg-[#f3f4f8]">
     <header
-        class="flex justify-between items-center m-20 border-4 border-indigo-100 h-19 p-9 shadow-md rounded-xl bg-[white] ">
+        class="flex justify-between items-center  border-4 border-indigo-100 h-15 p-4 shadow-md rounded-xl bg-[white] ">
         <div class="flex ">
-            <img class="size-48" src="./images/logoo.avif" alt="logo">
-            <p class="text-[66px] justify-center content-center  font-bold text-blue-400">lsnd</p>
+            <img class="size-20" src="./images/logoo.avif" alt="logo">
+            <p class="text-[26px] justify-center content-center  font-bold text-blue-400">Baztami</p>
         </div>
-        <p class="text-[45px]">Tableau de Bord</p>
+        <p class="text-[25px]">Tableau de Bord</p>
         <div class="header-actions">
-            <button onclick="openPopup()" class=" bg-sky-500/100 p-9 rounded-xl text-[26px] text-white font-bold">
+            <button onclick="openPopup()" class=" bg-sky-500/100 p-4 rounded-xl text-[18px] text-white font-bold">
                 + Ajouter une transaction
             </button>
 
         </div>
         <div class="dark-light">icon</div>
     </header>
+    <H1></H1>
     <div class="flex flex-col md:justify-evenly md:flex-row">
-        <div class="text-center m-20 border-4 border-indigo-100  shadow-md rounded-xl bg-[white]  flex-1 ">
-            <div class="text-[200%] ">Solde Net</div>
-            <div class="text-[290%] text-blue-500 font-bold">2 110,0 €</div>
+        <div class="text-center m-20 border-4 border-indigo-100  shadow-md rounded-xl bg-[white] flex-1 py-6 ">
+
+            <div id="solde" class="text-[60%] text-blue-500 font-bold">2 110,0 €</div>
         </div>
-        <div class="text-center m-20 border-4 border-indigo-100  shadow-md rounded-xl bg-[white]  flex-1 ">
-            <div class="text-[200%] ">Revenu Total</div>
-            <div class="text-[290%] text-green-500 font-bold">+3 670,0 €</div>
+        <div class="text-center m-20 border-4 border-indigo-100  shadow-md rounded-xl bg-[white] flex-1 py-6">
+
+            <div id="revenu" class="text-[60%] text-green-500 font-bold">+3 670,0 €</div>
         </div>
-        <div class="text-center m-20 border-4 border-indigo-100  shadow-md rounded-xl bg-[white]   flex-1">
-            <div class="text-[200%] ">Dépenses Totales</div>
-            <div class="text-[290%] text-red-500 font-bold">-1 560,0 €</div>
+        <div class="text-center m-20 border-4 border-indigo-100  shadow-md rounded-xl bg-[white] flex-1 py-6">
+
+            <div id="depense" class="text-[60%] text-red-500 font-bold">-1 560,0 €</div>
         </div>
 
     </div>
 
 
-    <h2 class="font-bold text-[250%] ml-20">Mes Transactions</h2>
-    <div id="carte-affichage" class="flex flex-col gap-5 justify-start px-20 py-10">
-        <!-- Les cartes seront insérées ici par JavaScript -->
+    <h2 class="font-bold text-[250%] ml-20 text-gray-600">Mes Transactions</h2>
+    <div id="carte-affichage" class=" flex flex-col gap-10 mt-16 ">
+        <!-- Les carte seront insérées ici par javaScript -->
+    </div>
+
+    <div
+        class="flex justify-between text-center bg-opacity-20 m-20 border-4 ${cadre} shadow-md rounded-xl ${couleur} w-[80%] pr-40 pl-40 pt-15 pb-15">
+        <div class="flex flex-col flex-1">
+
+            <div class="text-[150%] font-bold mb-3">${t.description}</div>
+            <div class="text-[120%] text-gray-600 mb-2">${t.date}</div>
+
+        </div>
+        <div class="flex gap-90 justify-center items-center flex-1">
+            <div class="text-[200%] font-bold">${signe}${t.montant} MAD</div>
+            <i class="fa-regular fa-trash"></i></button>
+            <button><i class="fa-regular fa-pen-to-square"></i></button>
+        </div>
+
+
     </div>
 
 
 
     <div id="popup" class="flex hidden fixed inset-0 justify-center bg-black bg-opacity-70">
         <div
-            class="flex flex-col gap-0 justify-between items-center m-20 border-4 border-indigo-100 h-17  shadow-md rounded-xl bg-[white] p-20 w-90">
+            class="flex flex-col gap-0 justify-between items-center m-20 border-4 border-indigo-100 h-17  shadow-md rounded-xl bg-[white] p-10 w-90">
 
-            <h2 class="text-[200%] flex justify-between bg-sky-500/100 p-9 rounded-xl text-[17px] text-white font-bold">
+            <h2
+                class="text-[100%] flex justify-between bg-sky-500/100 p-9 py-3 rounded-xl text-[17px] text-white font-bold">
                 Nouvelle Transaction</h2>
 
 
@@ -61,7 +81,7 @@
                 <div class="flex flex-col items-start justify-start">
                     <label> Type</label>
                     <select
-                        class="text-center m-10 border-4 border-indigo-100  shadow-md rounded-xl bg-[white] h-16 md:w-[590px] w-[100px] ml-0"
+                        class="text-center mx-10 my-5 border-4 border-indigo-100  shadow-md rounded-xl bg-[white] h-12 md:w-[590px] w-[100px] ml-0"
                         id="type" required>
                         <option value="">Sélectionnez</option>
                         <option value="revenu">Revenu</option>
@@ -71,33 +91,36 @@
                 <div class="flex flex-col items-start justify-evenly">
                     <label> Montant</label>
                     <input
-                        class="text-center m-10 border-4 border-indigo-100  shadow-md rounded-xl bg-[white] h-16 md:w-[590px] w-[100px] ml-0"
+                        class="text-center mx-10 my-5 border-4 border-indigo-100  shadow-md rounded-xl bg-[white] h-16 md:w-[590px] w-[100px] ml-0"
                         type="number" id="montant" placeholder="000.000.000 MAD" required>
                 </div>
                 <div class=" flex flex-col items-start justify-evenly">
                     <label> Date </label>
                     <input
-                        class="text-center m-10 border-4 border-indigo-100  shadow-md rounded-xl bg-[white] h-16 md:w-[590px] w-[100px] ml-0"
+                        class="text-center mx-10 my-5 border-4 border-indigo-100  shadow-md rounded-xl bg-[white] h-16 md:w-[590px] w-[100px] ml-0"
                         type="date" id="date" placeholder="selectionnez" required>
 
                 </div>
                 <div class="flex flex-col items-start justify-evenly ">
                     <label> Déscription</label>
                     <input
-                        class="text-center m-10 border-4 border-indigo-100  shadow-md rounded-xl bg-[white] h-16 md:w-[590px] w-[100px] ml-0"
+                        class="text-center mx-10  my-5 border-4 border-indigo-100  shadow-md rounded-xl bg-[white] h-16 md:w-[590px] w-[100px] ml-0"
                         type="text" id="description" placeholder="Ex: Salaire, Courses..." required>
                 </div>
 
                 <div class="flex gap-10">
                     <button id="anuller" onclick="closePopup()"
-                        class=" bg-red-400 p-9 rounded-xl text-[26px] text-white font-bold">Anuller</button>
-                    <button class=" bg-sky-500/100 pl-12 pr-12  rounded-xl text-[26px] text-white font-bold"
+                        class=" bg-red-400 px-9 py-3 rounded-xl text-[18px] text-white font-bold">Anuller</button>
+                    <button class=" bg-sky-500/100 pl-12 pr-12  rounded-xl text-[18px] text-white font-bold"
                         type="submit">Enregistrer</button>
                 </div>
             </form>
 
         </div>
     </div>
+
+
+
 
 
 
