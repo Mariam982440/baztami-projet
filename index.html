@@ -5,38 +5,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    darkMode: "class",
+  }
+</script>
+
+  
+
 
     <title>Document</title>
 </head>
 
-<body class="bg-[#f3f4f8]">
-    <header
-        class="flex justify-between items-center  border-4 border-indigo-100 h-15 p-4 shadow-md rounded-xl bg-[white] ">
+<body class="bg-[#f3f4f8] dark:bg-[#0b1220] transition-colors duration-300">
+
+<header 
+        class="flex justify-between items-center border-4 border-indigo-100 h-15 p-4 shadow-md rounded-xl bg-white dark:bg-[#0f172a]">
         <div class="flex ">
             <img class="size-20" src="./images/logoo.avif" alt="logo">
             <p class="text-[26px] justify-center content-center  font-bold text-blue-400">Baztami</p>
         </div>
         <p class="text-[25px]">Tableau de Bord</p>
         <div class="header-actions">
-            <button onclick="openPopup()" class=" bg-sky-500/100 p-4 rounded-xl text-[18px] text-white font-bold">
+            <button onclick="openPopup()" class="  bg-sky-500/100 p-4 rounded-xl text-[18px] text-white font-bold">
                 + Ajouter une transaction
             </button>
 
         </div>
-        <button class="dark-light"><i class="fa-solid fa-circle-half-stroke"></i></button>
+        <button class="dark-light"><i class="text-[250%] fa-solid fa-circle-half-stroke"></i></button>
+
     </header>
     <H1></H1>
     <div class="flex flex-col md:justify-evenly md:flex-row">
-        <div class="text-center m-20 border-4 border-indigo-100  shadow-md rounded-xl bg-[white] flex-1 py-6 ">
+<div class="text-center m-20 border-4 border-indigo-100 shadow-md rounded-xl bg-white dark:bg-[#1e293b] flex-1 py-6">
 
             <div id="solde" class="text-[60%] text-blue-500 font-bold">2 110,0 €</div>
         </div>
-        <div class="text-center m-20 border-4 border-indigo-100  shadow-md rounded-xl bg-[white] flex-1 py-6">
+<div class="text-center m-20 border-4 border-indigo-100 shadow-md rounded-xl bg-white dark:bg-[#1e293b] flex-1 py-6">
 
             <div id="revenu" class="text-[60%] text-green-500 font-bold">+3 670,0 €</div>
         </div>
-        <div class="text-center m-20 border-4 border-indigo-100  shadow-md rounded-xl bg-[white] flex-1 py-6">
+<div class="text-center m-20 border-4 border-indigo-100 shadow-md rounded-xl bg-white dark:bg-[#1e293b] flex-1 py-6">
 
             <div id="depense" class="text-[60%] text-red-500 font-bold">-1 560,0 €</div>
         </div>
