@@ -33,6 +33,7 @@ function afficherTransactions() {
     // boucle sur les transactions
     for (let i = 0; i < mesTransactions.length; i++) {
         const t = mesTransactions[i];
+        if (t.status === "deleted") continue; 
         const couleur = t.type === 'revenu' ? 'bg-green-500' : 'bg-red-500';
         const signe = t.type === 'revenu' ? '+' : '-';
         const cadre = t.type === 'revenu'? 'border-green-300':'border-red-300';
@@ -137,7 +138,7 @@ function afficherLesTotaux(soldeNet, revenuTotal, depenseTotal) {
 
 function supprimerTransaction(index){
     mesTransactions[index].status='deleted';
-    
+
     localStorage.setItem('transaction', JSON.stringify(mesTransactions)); 
     afficherTransactions(); 
     calculerEtAfficherTotaux();
