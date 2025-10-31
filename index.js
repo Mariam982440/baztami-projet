@@ -149,6 +149,15 @@ function afficherLesTotaux(soldeNet, revenuTotal, depenseTotal) {
 }
 
 function supprimerTransaction(index) {
+    
+    const confirmer = confirm("Êtes-vous sûr de vouloir supprimer cette transaction ?");
+    
+    if (!confirmer) {
+        
+        return;
+    }
+
+    
     mesTransactions[index].status = 'deleted';
     localStorage.setItem('transaction', JSON.stringify(mesTransactions)); 
     afficherTransactions(); 
